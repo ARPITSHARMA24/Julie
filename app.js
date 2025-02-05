@@ -1,4 +1,4 @@
-let anniversary = "2022-10-13";
+let anniversary = "2025-01-06";
 let date = new Date(anniversary);
 let dateVal = date.getTime();
 let today = new Date();
@@ -61,8 +61,8 @@ let soundBarsLottie = bodymovin.loadAnimation({
 let trackList = [
     {
         name: "Only",
-        artist: "Lee Hi",
-        path: "./music/only.mp3",
+        artist: "Ed Sheeran",
+        path: "./music/perfect.mp3",
     },
     {
         name: "Day & Night",
