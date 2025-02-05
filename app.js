@@ -32,7 +32,7 @@ if (today.getDate() === anniversary.getDate()) {
 console.log(`Years: ${years}, Months: ${months}, Days: ${days}`);
 
 
-console.log(value);
+
 
 document.getElementById("days").textContent = day.toString();
 document.getElementById("months").textContent = month.toString();
