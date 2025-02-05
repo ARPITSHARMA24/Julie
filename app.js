@@ -1,4 +1,4 @@
-let anniversary = new Date("2025-01-06");
+let anniversary = new Date("2024-12-06");
 let today = new Date();
 
 // Calculate total difference in milliseconds
