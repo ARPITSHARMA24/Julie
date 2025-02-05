@@ -31,7 +31,7 @@ console.log(`Years: ${years}, Months: ${months}, Days: ${days}`);
 
 
 
-
+console.log(value);
 
 document.getElementById("days").textContent = days.toString();
 document.getElementById("months").textContent = months.toString();
