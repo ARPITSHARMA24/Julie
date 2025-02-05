@@ -60,7 +60,7 @@ let soundBarsLottie = bodymovin.loadAnimation({
 
 let trackList = [
     {
-        name: "Only",
+        name: "Perfect",
         artist: "Ed Sheeran",
         path: "./music/perfect.mp3",
     },
