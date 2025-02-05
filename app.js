@@ -1,41 +1,29 @@
 let anniversary = new Date("2025-01-06");
 let today = new Date();
 
-// Calculate total difference in milliseconds
-let diff = today - anniversary;
-
-// Calculate years, months, and days correctly
 let years = today.getFullYear() - anniversary.getFullYear();
 let months = today.getMonth() - anniversary.getMonth();
 let days = today.getDate() - anniversary.getDate();
 
-// Adjust for negative days
+// If days are negative, borrow from previous month
 if (days < 0) {
+    months--;
     let prevMonthDays = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
     days += prevMonthDays;
-    months--;
 }
 
-// Adjust for negative months
+// If months are negative, borrow from previous year
 if (months < 0) {
     years--;
     months += 12;
 }
 
-// Update the DOM
-document.getElementById("days").textContent = days.toString();
-document.getElementById("months").textContent = months.toString();
-document.getElementById("years").textContent = years.toString();
-
 console.log(`Years: ${years}, Months: ${months}, Days: ${days}`);
 
-
-
-console.log(value);
-
 document.getElementById("days").textContent = days.toString();
 document.getElementById("months").textContent = months.toString();
 document.getElementById("years").textContent = years.toString();
+
 
 
 let musicPlayer = document.querySelector(".music-container");
