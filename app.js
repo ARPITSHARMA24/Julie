@@ -1,28 +1,32 @@
-let anniversary = "2025-01-06";
-let date = new Date(anniversary);
+let anniversary = new Date("2025-01-06");
 let today = new Date();
 
-// Calculate the difference in milliseconds
-let diff = today - date;
+// Calculate total difference in milliseconds
+let diff = today - anniversary;
 
-// Convert milliseconds to years, months, and days properly
-let years = today.getFullYear() - date.getFullYear();
-let months = today.getMonth() - date.getMonth();
-let days = today.getDate() - date.getDate();
+// Calculate total days
+let totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
 
-// Adjust for negative values
+// Calculate years, months, and days correctly
+let years = today.getFullYear() - anniversary.getFullYear();
+let months = today.getMonth() - anniversary.getMonth();
+let days = today.getDate() - anniversary.getDate();
+
+// Adjust if days are negative
 if (days < 0) {
+    let lastMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+    days += lastMonth;
     months--;
-    let prevMonth = new Date(today.getFullYear(), today.getMonth(), 0).getDate();
-    days += prevMonth;
 }
 
+// Adjust if months are negative
 if (months < 0) {
     years--;
     months += 12;
 }
 
 console.log(`Years: ${years}, Months: ${months}, Days: ${days}`);
+
 
 
 console.log(value);
