@@ -62,7 +62,7 @@ let trackList = [
     {
         name: "Perfect",
         artist: "Ed Sheeran",
-        path: "./music/perfect.mp3",
+        path: ".music/perfect.mp3",
     },
     {
         name: "Day & Night",
