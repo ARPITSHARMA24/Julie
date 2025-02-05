@@ -88,7 +88,7 @@ let trackList = [
     {
         name: "Oh Rangrez",
         artist: "Javed Bashir",
-        path: "./music/the only one.mp3", 
+        path: ".https://drive.google.com/drive/u/1/my-drive", 
      },
 
 ];
