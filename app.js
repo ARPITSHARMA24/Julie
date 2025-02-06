@@ -75,17 +75,17 @@ let trackList = [
     {
         name: "Piya Ghar Aayenge",
         artist: "Kailash Kher",
-        path: "./music/day and night.mp3",
+        path: "./music/day_and_night.mp3",
     },
     {
         name: "Chand Si Mehbooba",
         artist: "Md. Rafi",
-        path: "./music/love of my life.mp3",
+        path: "./music/love_of_my_life.mp3",
     },
     {
         name: "Oh Rangrez",
         artist: "Javed Bashir",
-        path: "./music/the only one.mp3",
+        path: "./music/the_only_one.mp3",
     }
 ];
 
