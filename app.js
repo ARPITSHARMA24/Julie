@@ -65,6 +65,16 @@ let soundBarsLottie = bodymovin.loadAnimation({
     autoPLay: false,
     path: "https://lottie.host/9ec12a7e-e429-453a-9f22-a2af1dcb4dca/2zeuy4rwtP.json",
 });
+fetch("./music/day_and_night.mp3", { headers: { "Range": "bytes=0-" } })
+  .then(res => res.blob())
+  .then(blob => {
+    console.log("Blob size:", blob.size);
+    const url = URL.createObjectURL(blob);
+    const audio = new Audio(url);
+    audio.play();
+  })
+  .catch(err => console.error("Audio loading error:", err));
+
 
 let trackList = [
     {
