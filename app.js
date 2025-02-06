@@ -84,14 +84,14 @@ let trackList = [
         name: "Chand Si Mehbooba",
         artist: "Md. Rafi",
         path: "./music/love of my life.mp3",
-    },  
+    },
     {
         name: "Oh Rangrez",
         artist: "Javed Bashir",
-        path: ".https://drive.google.com/drive/u/1/my-drive", 
-     },
-
+        path: "https://docs.google.com/uc?export=download&id=10WFVXgOwOUoB8cQQcURIZ4kZckJpYe9V",  // Replace YOUR_FILE_ID with actual Google Drive file ID
+    }
 ];
+
 
 // EVENT LISTENERS
 playPauseBtn.addEventListener("click", playPauseTrack);
