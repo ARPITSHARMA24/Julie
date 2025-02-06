@@ -78,7 +78,7 @@ let trackList = [
     {
         name: "Piya Ghar Aayenge",
         artist: "Kailash Kher",
-        path: "./music/day and night.mp3",
+        path: "day and night.mp3",
     },
     {
         name: "Chand Si Mehbooba",
