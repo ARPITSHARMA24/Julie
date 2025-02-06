@@ -24,8 +24,6 @@ document.getElementById("days").textContent = days.toString();
 document.getElementById("months").textContent = months.toString();
 document.getElementById("years").textContent = years.toString();
 
-
-
 let musicPlayer = document.querySelector(".music-container");
 let togglePlayer = document.querySelector(".toggle-player");
 
@@ -47,7 +45,7 @@ let soundBars = document.querySelector(".sound-bars");
 
 togglePlayer.addEventListener("click", function() {
     isHidden = !isHidden;
-    if(isHidden){
+    if (isHidden) {
         musicPlayer.classList.remove("hide");
         togglePlayer.innerHTML = '<img class="w-[98%]" src="icons/close.svg">';
         trackInfo.style.transitionDelay = "0.4s";
@@ -68,7 +66,6 @@ let soundBarsLottie = bodymovin.loadAnimation({
     path: "https://lottie.host/9ec12a7e-e429-453a-9f22-a2af1dcb4dca/2zeuy4rwtP.json",
 });
 
-
 let trackList = [
     {
         name: "Perfect",
@@ -88,68 +85,86 @@ let trackList = [
     {
         name: "Oh Rangrez",
         artist: "Javed Bashir",
-        path: "https://docs.google.com/uc?export=download&id=10WFVXgOwOUoB8cQQcURIZ4kZckJpYe9V",  // Replace YOUR_FILE_ID with actual Google Drive file ID
+        path: "https://docs.google.com/uc?export=download&id=10WFVXgOwOUoB8cQQcURIZ4kZckJpYe9V",
     }
 ];
-
 
 // EVENT LISTENERS
 playPauseBtn.addEventListener("click", playPauseTrack);
 nextBtn.addEventListener("click", nextTrack);
 prevBtn.addEventListener("click", prevTrack);
 
-function loadTrack(trackIndex){
+function loadTrack(trackIndex) {
     currentTrack.src = trackList[trackIndex].path;
     trackName.textContent = trackList[trackIndex].name;
     trackArtist.textContent = trackList[trackIndex].artist;
-    currentTrack.addEventListener("ended", nextTrack);
+
     currentTrack.load();
+
+    // Debugging logs
+    console.log("Loading track:", trackList[trackIndex].name);
+    console.log("Track source:", currentTrack.src);
+
+    currentTrack.onloadeddata = () => {
+        console.log("Track loaded successfully.");
+    };
+
+    currentTrack.onerror = () => {
+        console.error("Error loading track:", currentTrack.src);
+    };
 }
 
 loadTrack(trackIndex);
 
-function playPauseTrack(){
-    if(isPlaying == false){
+function playPauseTrack() {
+    if (!isPlaying) {
         playTrack();
-    }else{
+    } else {
         pauseTrack();
     }
 }
 
-function playTrack(){
-    currentTrack.play();
-    isPlaying = true;
-    playPauseBtn.innerHTML = '<img class="w-8" src="icons/pause.svg">';
-    soundBarsLottie.play();
+function playTrack() {
+    let playPromise = currentTrack.play();
+
+    if (playPromise !== undefined) {
+        playPromise
+            .then(() => {
+                isPlaying = true;
+                playPauseBtn.innerHTML = '<img class="w-8" src="icons/pause.svg">';
+                soundBarsLottie.play();
+                console.log("Playing track:", trackList[trackIndex].name);
+            })
+            .catch(error => {
+                console.error("Playback failed:", error);
+            });
+    }
 }
 
-function pauseTrack(){
+function pauseTrack() {
     currentTrack.pause();
     isPlaying = false;
     playPauseBtn.innerHTML = '<img class="w-8" src="icons/play.svg">';
     soundBarsLottie.stop();
+    console.log("Paused track.");
 }
 
-function nextTrack(){
-    if(trackIndex < trackList.length - 1){
+function nextTrack() {
+    if (trackIndex < trackList.length - 1) {
         trackIndex += 1;
-        loadTrack(trackIndex);
-        playTrack();
-    }else{
+    } else {
         trackIndex = 0;
-        loadTrack(trackIndex);
-        playTrack();
-    } 
+    }
+    loadTrack(trackIndex);
+    playTrack();
 }
 
-function prevTrack(){
-    if(trackIndex > 0){
+function prevTrack() {
+    if (trackIndex > 0) {
         trackIndex -= 1;
-        loadTrack(trackIndex);
-        playTrack();
-    }else{
+    } else {
         trackIndex = trackList.length - 1;
-        loadTrack(trackIndex);
-        playTrack();
     }
+    loadTrack(trackIndex);
+    playTrack();
 }
