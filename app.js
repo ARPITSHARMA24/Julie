@@ -45,7 +45,7 @@ let soundBars = document.querySelector(".sound-bars");
 
 togglePlayer.addEventListener("click", function() {
     isHidden = !isHidden;
-    if (isHidden) {
+    if(isHidden){
         musicPlayer.classList.remove("hide");
         togglePlayer.innerHTML = '<img class="w-[98%]" src="icons/close.svg">';
         trackInfo.style.transitionDelay = "0.4s";
