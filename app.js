@@ -94,77 +94,58 @@ playPauseBtn.addEventListener("click", playPauseTrack);
 nextBtn.addEventListener("click", nextTrack);
 prevBtn.addEventListener("click", prevTrack);
 
-function loadTrack(trackIndex) {
+function loadTrack(trackIndex){
     currentTrack.src = trackList[trackIndex].path;
     trackName.textContent = trackList[trackIndex].name;
     trackArtist.textContent = trackList[trackIndex].artist;
-
+    currentTrack.addEventListener("ended", nextTrack);
     currentTrack.load();
-
-    // Debugging logs
-    console.log("Loading track:", trackList[trackIndex].name);
-    console.log("Track source:", currentTrack.src);
-
-    currentTrack.onloadeddata = () => {
-        console.log("Track loaded successfully.");
-    };
-
-    currentTrack.onerror = () => {
-        console.error("Error loading track:", currentTrack.src);
-    };
 }
 
 loadTrack(trackIndex);
 
-function playPauseTrack() {
-    if (!isPlaying) {
+function playPauseTrack(){
+    if(isPlaying == false){
         playTrack();
-    } else {
+    }else{
         pauseTrack();
     }
 }
 
-function playTrack() {
-    let playPromise = currentTrack.play();
-
-    if (playPromise !== undefined) {
-        playPromise
-            .then(() => {
-                isPlaying = true;
-                playPauseBtn.innerHTML = '<img class="w-8" src="icons/pause.svg">';
-                soundBarsLottie.play();
-                console.log("Playing track:", trackList[trackIndex].name);
-            })
-            .catch(error => {
-                console.error("Playback failed:", error);
-            });
-    }
+function playTrack(){
+    currentTrack.play();
+    isPlaying = true;
+    playPauseBtn.innerHTML = '<img class="w-8" src="icons/pause.svg">';
+    soundBarsLottie.play();
 }
 
-function pauseTrack() {
+function pauseTrack(){
     currentTrack.pause();
     isPlaying = false;
     playPauseBtn.innerHTML = '<img class="w-8" src="icons/play.svg">';
     soundBarsLottie.stop();
-    console.log("Paused track.");
 }
 
-function nextTrack() {
-    if (trackIndex < trackList.length - 1) {
+function nextTrack(){
+    if(trackIndex < trackList.length - 1){
         trackIndex += 1;
-    } else {
+        loadTrack(trackIndex);
+        playTrack();
+    }else{
         trackIndex = 0;
-    }
-    loadTrack(trackIndex);
-    playTrack();
+        loadTrack(trackIndex);
+        playTrack();
+    } 
 }
 
-function prevTrack() {
-    if (trackIndex > 0) {
+function prevTrack(){
+    if(trackIndex > 0){
         trackIndex -= 1;
-    } else {
+        loadTrack(trackIndex);
+        playTrack();
+    }else{
         trackIndex = trackList.length - 1;
+        loadTrack(trackIndex);
+        playTrack();
     }
-    loadTrack(trackIndex);
-    playTrack();
 }
