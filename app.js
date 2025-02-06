@@ -73,7 +73,7 @@ let trackList = [
     {
         name: "Perfect",
         artist: "Ed Sheeran",
-        path: "./music/only.mp3",
+        path: "https://docs.google.com/uc?export=download&id=1oOxwiA-B1Zcs90VmdduTq8HSj7Gf0yvs",
     },
     {
         name: "Piya Ghar Aayenge",
