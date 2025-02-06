@@ -70,12 +70,12 @@ let trackList = [
     {
         name: "Perfect",
         artist: "Ed Sheeran",
-        path: "https://docs.google.com/uc?export=download&id=1oOxwiA-B1Zcs90VmdduTq8HSj7Gf0yvs",
+        path: "./music/only.mp3",
     },
     {
         name: "Piya Ghar Aayenge",
         artist: "Kailash Kher",
-        path: "day and night.mp3",
+        path: "./music/day and night.mp3",
     },
     {
         name: "Chand Si Mehbooba",
@@ -85,7 +85,7 @@ let trackList = [
     {
         name: "Oh Rangrez",
         artist: "Javed Bashir",
-        path: "https://docs.google.com/uc?export=download&id=10WFVXgOwOUoB8cQQcURIZ4kZckJpYe9V",
+        path: "./music/the only one.mp3",
     }
 ];
 
