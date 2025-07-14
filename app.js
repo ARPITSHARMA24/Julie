@@ -83,8 +83,8 @@ let trackList = [
         path: "./music/only.mp3",
     },
     {
-        name: "Piya Ghar Aayenge",
-        artist: "Kailash Kher",
+        name: "Shyad",
+        artist: "Arijit Singh",
         path: "./music/day_and_night.mp3",
     },
     {
@@ -93,8 +93,8 @@ let trackList = [
         path: "./music/love_of_my_life.mp3",
     },
     {
-        name: "Oh Rangrez",
-        artist: "Javed Bashir",
+        name: "Stephen Sanchez ",
+        artist: "Until I Found You",
         path: "./music/the_only_one.mp3",
     }
 ];
